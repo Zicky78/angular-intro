@@ -2,24 +2,27 @@
 <div class="todos">
   <ul>
     <ng-container *ngFor="let todo of todos">
-        <li *ngIf="!todo.isDeleted"
-        [ngClass]="{ 'completed': todo.isCompleted }"
-        (click)="toggleCompleted(todo)">
-        {{ todo.title }} 
+      <li
+        *ngIf="!todo.isDeleted"
+        [ngClass]="{ completed: todo.isCompleted }"
+        (click)="toggleCompleted(todo)"
+      >
+        {{ todo.title }}
         <span (click)="toggleDeleted(todo)">Delete</span>
       </li>
     </ng-container>
   </ul>
   <form (ngSubmit)="addTodo()">
-    <input type="text" [(ngModel)]="newTodo.title" name="title">
+    <input type="text" [(ngModel)]="newTodo.title" name="title" />
     <button>Add</button>
   </form>
 </div>
 
-<hr>
+<hr />
 
 <div class="trash">
   <h2>Trash</h2>
+  <button (click)="emptyTodoTrash()">Empty</button>
   <ul>
     <ng-container *ngFor="let todo of todos">
       <li *ngIf="todo.isDeleted">

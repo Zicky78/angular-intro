@@ -9,8 +9,7 @@ import { Todo } from '../models/todo';
   styleUrls: ['./todo.component.css']
 })
 export class TodoComponent implements OnInit {
-
-  constructor() { }
+  constructor() {}
 
   newTodo: TodoInterface = new Todo();
 
@@ -18,12 +17,16 @@ export class TodoComponent implements OnInit {
     { title: 'Clean the kitchen', isCompleted: false, isDeleted: false },
     { title: 'Mow the lawn', isCompleted: false, isDeleted: false },
     { title: 'Clean the gutters', isCompleted: false, isDeleted: false },
-    { title: 'Take out the trash', isCompleted: false, isDeleted: false },
+    { title: 'Take out the trash', isCompleted: false, isDeleted: false }
   ];
 
-  toggleCompleted(todo: TodoInterface): void { todo.isCompleted = !todo.isCompleted; }
+  toggleCompleted(todo: TodoInterface): void {
+    todo.isCompleted = !todo.isCompleted;
+  }
 
-  toggleDeleted(todo: TodoInterface): void { todo.isDeleted = !todo.isDeleted; }
+  toggleDeleted(todo: TodoInterface): void {
+    todo.isDeleted = !todo.isDeleted;
+  }
 
   addTodo(): void {
     if (this.newTodo.title.trim() !== '') {
@@ -32,7 +35,9 @@ export class TodoComponent implements OnInit {
     }
   }
 
-  ngOnInit() {
+  emptyTodoTrash() {
+    this.todos = this.todos.filter(todo => !todo.isDeleted);
   }
 
+  ngOnInit() {}
 }
