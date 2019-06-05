@@ -9,6 +9,8 @@ import { TodoComponent } from './todo/todo.component';
 import { CharactersComponent } from './characters/characters.component';
 import { IndividualCharacterComponent } from './individual-character/individual-character.component';
 import { ContactComponent } from './contact/contact.component';
+import { EmailComponent } from './components/email.component';
+import { PhonePipe } from './pipes/phone.pipe';
 
 @NgModule({
   declarations: [
@@ -17,14 +19,12 @@ import { ContactComponent } from './contact/contact.component';
     TodoComponent,
     CharactersComponent,
     IndividualCharacterComponent,
-    ContactComponent
+    ContactComponent,
+    EmailComponent,
+    PhonePipe
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
